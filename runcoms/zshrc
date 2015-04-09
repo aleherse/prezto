@@ -10,4 +10,20 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Customize to your needs..#
+alias tmux='tmux -2'                                                                                                                                                                                   
+alias mailcatch='mailcatcher --http-ip=33.33.33.10'                                                                                                                                                      
+alias tomcat-up='sudo $CATALINA_HOME/bin/startup.sh'                                                                                                                                                     
+alias tomcat-down='sudo $CATALINA_HOME/bin/shutdown.sh'                                                                                                                                                  
+alias cmd-debug='export XDEBUG_CONFIG="idekey=PHPStorm"'                                                                                                                                                 
+alias cmd-debug-off='export XDEBUG_CONFIG=""'                                                                                                                                                            
+
+if [ -d "$HOME/.composer/vendor/bin" ] ; then                                                                                                                                                            
+	PATH="$HOME/.composer/vendor/bin:$PATH"                                                                                                                                                              
+fi                                                                                                                                                                                                       
+                                                                                                                                                                                                       
+alias git=hub
+
+export LC_ALL=en_GB.UTF-8
+
+cd /var/www
