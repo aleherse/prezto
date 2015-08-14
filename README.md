@@ -115,3 +115,21 @@ SOFTWARE.
 [6]: http://gitref.org
 [7]: http://www.bash2zsh.com/zsh_refcard/refcard.pdf
 [8]: http://grml.org/zsh/zsh-lovers.html
+
+-------------
+MAC terminal theme + font
+
+# Install Solarized
+git clone https://github.com/altercation/solarized
+cd solarized
+
+# e.g. for iTerm
+cd iterm2-colors-solarized/
+open Solarized\ Dark.itermcolors
+# this should load the colours for iTerm, but they are not configured yet
+
+# in iTerm2 open preferences 
+#   profiles > default > colours > load presets > Solarized Dark
+#   profiles > default > terminal > report terminal type > "xterm-256color"
+
+git clone https://github.com/powerline/fonts.git
