@@ -133,7 +133,3 @@ open Solarized\ Dark.itermcolors
 #   profiles > default > terminal > report terminal type > "xterm-256color"
 
 git clone https://github.com/powerline/fonts.git
-
-
-
-
