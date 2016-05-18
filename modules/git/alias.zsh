@@ -185,4 +185,4 @@ alias gwX='git rm -rf'
 
 # Hub app
 alias gpr='hub pull-request -b' 
-
+alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "stage" | xargs -n 1 git branch -d'
