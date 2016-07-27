@@ -36,7 +36,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'syntax-highlighting' \
   'tmux' \
-  'php'
+  'php' \
+  'docker'
 
 #
 # Autosuggestions
