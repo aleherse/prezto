@@ -11,14 +11,29 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs..#
-alias tmux='tmux -2' 
+alias tmux='tmux -2 -CC' 
 alias mailcatch='mailcatcher --http-ip=33.33.33.10'
 alias tomcat-up='sudo $CATALINA_HOME/bin/startup.sh'
 alias tomcat-down='sudo $CATALINA_HOME/bin/shutdown.sh'
 alias cmd-debug='export XDEBUG_CONFIG="idekey=PHPStorm"'
 alias cmd-debug-off='export XDEBUG_CONFIG=""'
+alias keys='eval `keychain --eval --agents ssh id_rsa votasegunpoliticas.pem`'
+alias ssh-minecraft='ssh -i ~/.ssh/minecraft-asw.pem ec2-user@ec2-52-31-196-114.eu-west-1.compute.amazonaws.com'
 
 export LC_ALL=en_GB.UTF-8
+export ANDROID_HOME=/usr/local/opt/android-sdk
 
-cd /var/www
+# added by travis gem
+[ -f /Users/aleherse/.travis/travis.sh ] && source /Users/aleherse/.travis/travis.sh
+if [ -f /Users/aleherse/Workspace/tuprogramaelectoral/artifacts/aliases ]; then
+    export TPE_PATH=/Users/aleherse/Workspace/tuprogramaelectoral
+    source /Users/aleherse/Workspace/tuprogramaelectoral/artifacts/aliases
+fi
+if [ -f /Users/aleherse/Workspace/polis/artifacts/aliases ]; then
+    export POLIS_PATH=/Users/aleherse/Workspace/polis
+    source /Users/aleherse/Workspace/polis/artifacts/aliases
+fi
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+cd ~/workspace
