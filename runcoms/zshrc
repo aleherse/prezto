@@ -31,8 +31,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 cd ~/workspace
 
 # Added AWS credentials
-if [ -f ~/.credentials/aws/environment.zsh ]; then
-    source ~/.credentials/aws/environment.zsh 
+if [ -f ~/.credentials/load.zsh ]; then
+    source ~/.credentials/load.zsh 
 fi
 
 # Added App Engine 
