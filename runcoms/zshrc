@@ -15,28 +15,30 @@ export LC_ALL=en_GB.UTF-8
 export GOPATH=$HOME/workspace
 export PATH=$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin
 
-# added by travis gem
-[ -f /Users/aleherse/.travis/travis.sh ] && source /Users/aleherse/.travis/travis.sh
-if [ -f /Users/aleherse/Workspace/tuprogramaelectoral/artifacts/aliases ]; then
-    export TPE_PATH=/Users/aleherse/Workspace/tuprogramaelectoral
-    source /Users/aleherse/Workspace/tuprogramaelectoral/artifacts/aliases
-fi
-if [ -f /Users/aleherse/Workspace/polis/artifacts/aliases ]; then
-    export POLIS_PATH=/Users/aleherse/Workspace/polis
-    source /Users/aleherse/Workspace/polis/artifacts/aliases
+
+if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-cd ~/workspace
-
-# Added AWS credentials
-if [ -f ~/.credentials/load.zsh ]; then
-    source ~/.credentials/load.zsh 
+if [[ -f /home/$USER/.userrc ]]; then
+    source ~/.userrc
 fi
 
-# Added App Engine 
-if [ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]; then
-    source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-    source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+export AWS_PROFILE=smartgrade_administrator
+export AWS_DEFAULT_REGION=eu-west-2
+
+# Pi
+export PATH="$HOME/.local/bin:$PATH"
+alias update='sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt clean -y'
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# WSLg X11 display (for GUI apps like kdenlive)
+export DISPLAY=:0
+
+# One tmux session per terminal tab (replaces prezto's tmux auto-start, which
+# attached every tab to the same session). -A attaches instead of failing if a
+# session with this name somehow already exists, so exec can never drop the tab.
+if [[ -o interactive && -z "$TMUX" && -z "$EMACS" && -z "$VIM" ]] && (( $+commands[tmux] )); then
+  exec tmux new-session -A -s "tab-$$"
 fi

@@ -138,8 +138,11 @@ open Solarized\ Dark.itermcolors
 #   profiles > default > colours > load presets > Solarized Dark
 #   profiles > default > terminal > report terminal type > "xterm-256color"
 
-git clone https://github.com/powerline/fonts.git
+You need to install a Powerline-compatible font on Windows: download a TTF font from here https://github.com/tonsky/FiraCode, open the file, and click Install. In Ubuntu terminal settings, select that font in the font face option. You should now be able to see the symbols in the terminal.
 
+```bash
+sudo apt install zsh-syntax-highlighting
+```
 
 
 

@@ -120,7 +120,8 @@ alias gmt='git mergetool'
 
 # Push (p)
 alias gp='git push'
-alias gpf='git push --force'
+alias gpf='git push --force-with-lease --force-if-includes'
+alias gpF='git push --force'
 alias gpa='git push --all'
 alias gpA='git push --all && git push --tags'
 alias gpt='git push --tags'
@@ -185,4 +186,4 @@ alias gwX='git rm -rf'
 
 # Hub app
 alias gpr='hub pull-request -b' 
-alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "stage" | xargs -n 1 git branch -d'
+alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "stage" | grep -c "live" | grep -c "preview" | xargs -n 1 git branch -d'
